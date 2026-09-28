@@ -38,6 +38,15 @@ class hotelGuest {
     }
 
     public:
+    //생성자: 모든 멤버변수 초기화, 기본값 설정, test함수들 호출
+    hotelGuest(int RN = 101, int SN = 1)//기본값 설정
+    : roomNumber{RN}, stayNights{SN}
+    {
+        testRoomNumber();
+        testStayNights();
+    }
+
+
     void input(){
         std::cout << "Enter room number: ";
         std::cin >> roomNumber;
@@ -54,7 +63,7 @@ class hotelGuest {
         stayNights = newStayNights;
         testStayNights();
     }
-    void print(){
+    void print() const {
         switch(roomNumber/100){
             case 1: std::cout << "floor 1, "; break;
             case 2: std::cout << "floor 2, "; break;
@@ -69,9 +78,10 @@ class hotelGuest {
         std::cout << "room number: " << roomNumber % 100 << std::endl;
         std::cout << "num of nights: " << stayNights << std::endl;
     }
-    int getRoomNumber() {return roomNumber;}
-    int getStayNights() {return stayNights;}
+    int getRoomNumber() const {return roomNumber;} //함수 안에서 멤버변수 변경X
+    int getStayNights() const {return stayNights;}
 };
+
 }
 
 // 3. main.cpp: 테스트
