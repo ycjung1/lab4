@@ -16,7 +16,7 @@ int main()
     holiday h1{};
     h1.print();
     
-    holiday h2{dayOfYear{12,25}. true};
+    holiday h2{dayOfYear{12,25}, true};
     h2.print();
 
     if (compareDayOfYear(h1.getDate(), h2.getDate())) 
